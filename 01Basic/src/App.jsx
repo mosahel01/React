@@ -1,8 +1,8 @@
-import Chai from "./Chai.jsx";
+import Tea from "./Chai.jsx";
 function App() {
   return (
     <>
-      <Chai />
+      <Tea />
     </>
   );
 }
