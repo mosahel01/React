@@ -14,6 +14,10 @@ function App() {
     console.log(counter);
     setCounter((counter) => counter - 1);
   }
+  const resetValue = () => {
+    console.log(counter);
+    setCounter((counter) => counter);
+  };
 
   return (
     <>
@@ -21,6 +25,10 @@ function App() {
       <h2>Counter Value: {counter}</h2>
       <button type="button" onClick={addValue}>
         Add Value
+      </button>
+      <br />
+      <button type="button" onClick={resetValue}>
+        Reset
       </button>
       <br />
       <button type="button" onClick={delValue}>
