@@ -4,6 +4,7 @@ import { useState } from "react";
 function App() {
   const [counter, setCounter] = useState(15);
   // let counter = 5; defining a variable cannot Update UI
+  console.log("working");
 
   // setCounter is responsible for updating the value of 'counter'
   const addValue = () => {

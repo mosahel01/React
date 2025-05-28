@@ -12,7 +12,8 @@ function Card({ title }) {
             {title || "Error in showing Weather"}
           </div>
           <p className="text-gray-200 text-base">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam enim
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos
+            dolorum ut quaerat sequi, repellat excepturi.
           </p>
         </div>
         <div className="px-6 pt-4 pb-2">
