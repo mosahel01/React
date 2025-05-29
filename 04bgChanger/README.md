@@ -4,7 +4,7 @@ A simple password generator built with React. It lets you generate secure passwo
 
 ## ✨ Features
 
-- Generate random secure passwords
+- Generate secure random passwords
 - Set custom length
 - Toggle:
   - Uppercase letters
