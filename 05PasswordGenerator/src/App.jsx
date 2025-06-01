@@ -32,6 +32,14 @@ function App() {
   //   setPassword(navigator.clipboard.writeText(handlePassword()));
   // };
 
+  const passwordRef = useRef(null);
+
+  const copytoclipboard = useCallback(() => {
+    passwordRef.current?.select();
+    // passwordRef.current?.selectSelectionRange(2, 10);
+    window.navigator.clipboard.writeText(password);
+  }, [password]);
+
   return (
     <>
       <div className="p-x-10 p-6 bg-[#212122] shadow-black-lg rounded-xl text-center justify-center ">
@@ -43,11 +51,13 @@ function App() {
             id="div-input"
             value={password}
             className="text-black bg-white rounded-l-xl p-2 "
+            ref={passwordRef}
           />
           <button
             type="button"
             className="text-white bg-yellow p-6"
-            onClick={() => handleCopy}
+            onClick={copytoclipboard}
+            // onClick={() => handleCopy}
             // onClick={() => handleCopy}
           >
             Copy
