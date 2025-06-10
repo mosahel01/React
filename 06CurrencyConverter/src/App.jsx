@@ -1,7 +1,10 @@
+// import { useState } from "react";
+// import { InputBox } from "./components/";
+// import useCurrencyInfo from "./hooks/useCurrencyInfo.js";
+
 import { useState } from "react";
-import "./App.css";
-import { InputBox } from "./Components/Import.js";
-import useCurrencyInfo from "./hooks/useCurrencyInfo.js";
+import { InputBox } from "./components";
+import useCurrencyInfo from "./hooks/useCurrencyinfo";
 
 function App() {
   const [amount, setAmount] = useState(0);
@@ -45,31 +48,32 @@ function App() {
                 label="From"
                 amount={amount}
                 currencyOptions={options}
-                onCurrencyChange={(currency) => setFrom(currency)}
+                onCurrencyChange={(currency) => setAmount(amount)}
                 selectCurrency={from}
-                // amountDisabled
                 onAmountChange={(amount) => setAmount(amount)}
+                // amountDisabled
               />
             </div>
 
-            <div className="relative w-full h-0">
+            <div className="relative w-full h-0.5">
               <button
                 type="button"
-                className=" absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white bg-blue-600 text px-2 py-0.5 "
+                className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white rounded-md bg-blue-600 text-white px-2 py-0.5"
                 onClick={swap}
               >
-                Swap
+                swap
               </button>
             </div>
             <div className="w-full mt-1 mb-4">
               <InputBox
-                label="to"
+                label="To"
                 amount={convertedamount}
                 currencyOptions={options}
                 onCurrencyChange={(currency) => setTo(currency)}
                 selectCurrency={to}
+                amountDisable
                 // amountDisabled
-                onAmountChange={(amount) => setAmount(amount)}
+                // onAmountChange={(amount) => setAmount(amount)}
               />
             </div>
             <button
