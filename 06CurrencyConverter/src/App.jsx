@@ -7,10 +7,10 @@ import { InputBox } from "./components";
 import useCurrencyInfo from "./hooks/useCurrencyInfo";
 
 function App() {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState("");
   const [from, setFrom] = useState("usd");
-  const [to, setTo] = useState("inr");
-  const [convertedamount, setConvertedAmount] = useState(0);
+  const [to, setTo] = useState("aed");
+  const [convertedamount, setConvertedAmount] = useState("");
 
   const currencyInfo = useCurrencyInfo(from);
   const options = Object.keys(currencyInfo);
@@ -18,10 +18,12 @@ function App() {
     setFrom(to);
     setTo(from);
     setConvertedAmount(amount);
+    // setConvertedAmount(parseFloat(amount) * currencyInfo[to]);
     setAmount(convertedamount);
   };
   const convert = () => {
-    setConvertedAmount(amount * currencyInfo[to]);
+    // setConvertedAmount(amount * currencyInfo[to]);
+    setConvertedAmount(parseFloat(amount) * currencyInfo[to]);
   };
 
   const BackgroundImage =
