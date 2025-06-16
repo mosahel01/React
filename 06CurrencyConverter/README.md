@@ -1,12 +1,83 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 💱 Currency Converter [![Netlify Status](https://api.netlify.com/api/v1/badges/6e1babd7-1f28-4bd7-aca3-a097d8a3cfd8/deploy-status)](https://app.netlify.com/projects/mos-currency-converter/deploys)
 
-Currently, two official plugins are available:
+A simple and responsive **Currency Converter** built using **React** and **TailwindCSS**,
+powered by [Fawaz Ahmed's Free Currency API](https://github.com/fawazahmed0/currency-api).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> Instantly convert between currencies with real-time exchange rates.
 
-## Expanding the ESLint configuration
+---
+__*Live Demo*__: [mos-currency-converter.netlify.app](https://mos-currency-converter.netlify.app/) 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+
+- 🌍 Convert any currency to another in real-time
+- 🔄 Swap "From" and "To" currencies
+- 📈 Auto-updates exchange rates using latest API data
+- 💅 Fully responsive UI using TailwindCSS
+
+---
+
+## 🧰 Tech Stack
+
+- **React** – Component-based UI
+- **TailwindCSS** – Utility-first styling
+- **Fawaz Ahmed's Currency API** – Real-time exchange rates
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/mosahel01/currency-converter.git
+cd currency-converter
+npm install
+npm run dev
+````
+
+Make sure you have **Node.js** and **npm** installed.
+
+---
+
+## 🔗 API Info
+
+This app uses:
+
+```
+https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/{base}.json
+```
+
+Replace `{base}` with your currency code (e.g., `usd`, `inr`, `eur`, etc.)
+
+---
+
+## 🛠️ Customization
+
+* Tailwind classes are used for styling, so feel free to tweak them.
+* You can change the default currency or extend functionality (e.g., add charts, history).
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+├── components/
+│   └── InputBox.jsx      # Custom currency input field
+├── hooks/
+│   └── useCurrencyInfo.js # Custom hook to fetch rates
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+## 🤝 Contributing
+
+Pull requests and issues are welcome! Feel free to fork and contribute.
+
+---
+
+## 👤 Author
+
+**[@mosahel01](https://github.com/mosahel01)** – Creator & Maintainer
