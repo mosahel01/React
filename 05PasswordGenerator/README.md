@@ -1,12 +1,60 @@
-# React + Vite
+# 🔐 Password-generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and minimal password generator built with **React** and **Tailwind CSS**.
 
-Currently, two official plugins are available:
+![GitHub Repo stars](https://img.shields.io/github/stars/mosahel01/Password-generator?style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/mosahel01/Password-generator?style=flat-square)
+![License](https://img.shields.io/github/license/mosahel01/Password-generator?style=flat-square)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🔒 Generate strong, random passwords
+- ⚙️ Customize length and character types
+- 📋 One-click copy to clipboard
+- 💨 Built with Tailwind CSS for a clean UI
+
+---
+
+## 🧰 Tech Stack
+
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- JavaScript (ES6+)
+- [Vite](https://vitejs.dev/) *(if you're using it)*
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/mosahel01/Password-Generator.git
+cd Password-generator
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Start the dev server
+
+```bash
+npm start
+```
+
+> The app should now be running at [http://localhost:3000](http://localhost:3000)
+---
+> You can live demo at [mossword-generator](https://mossword-generator.netlify.app)
+
+---
+
+
+## 🙌 Author
+
+Made with ❤️ by [mosahel01](https://github.com/mosahel01)
+
