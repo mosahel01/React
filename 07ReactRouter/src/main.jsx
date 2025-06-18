@@ -13,7 +13,28 @@ import Contact from "./component/Contact/Contact.jsx";
 import Github from "./component/Github/Github.jsx";
 import { githubInfoLoader } from "./component/Github/GithubInfoLoader.jsx";
 import User from "./component/User/User.jsx";
+// import Mos from "./component/Mos/Mos.jsx";
 import "./index.css";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Layout />}>
+      <Route path="" element={<Home />} />
+      <Route path="about" element={<About />}>
+        {/* <Route path="Mos" /> */}
+      </Route>
+      <Route path="contact" element={<Contact />} />
+      <Route loader={githubInfoLoader} path="github" element={<Github />} />
+      <Route path="user/:userid" element={<User />} />
+    </Route>
+  )
+);
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>
+);
 
 // const router = createBrowserRouter([
 //   {
@@ -39,21 +60,3 @@ import "./index.css";
 //     ],
 //   },
 // ]);
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
-      <Route path="" element={<Home />} />
-      <Route path="about" element={<About />} />
-      <Route path="contact" element={<Contact />} />
-      <Route loader={githubInfoLoader} path="github" element={<Github />} />
-      <Route path="user/:userid" element={<User />} />
-    </Route>
-  )
-);
-
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>
-);
