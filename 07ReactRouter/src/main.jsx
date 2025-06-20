@@ -13,7 +13,7 @@ import Contact from "./component/Contact/Contact.jsx";
 import Github from "./component/Github/Github.jsx";
 import { githubInfoLoader } from "./component/Github/GithubInfoLoader.jsx";
 import User from "./component/User/User.jsx";
-// import Mos from "./component/Mos/Mos.jsx";
+import Mos from "./component/Mos/Mos.jsx";
 import "./index.css";
 
 const router = createBrowserRouter(
@@ -21,7 +21,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route path="" element={<Home />} />
       <Route path="about" element={<About />}>
-        {/* <Route path="Mos" /> */}
+        <Route path="Mos" element={<Mos />} />
       </Route>
       <Route path="contact" element={<Contact />} />
       <Route loader={githubInfoLoader} path="github" element={<Github />} />

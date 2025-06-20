@@ -1,5 +1,5 @@
 function Mos() {
-  return <div>Mos</div>;
+  return <div>Hola Amigo</div>;
 }
 
 export default Mos;
