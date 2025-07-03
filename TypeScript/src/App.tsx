@@ -2,6 +2,22 @@ import Button from "./Button";
 import Card from "./Card";
 import Dock from "./Dock";
 
+// type User = {
+//   name: string;
+//   age: number;
+// };
+
+// const [user, setUser] = useState<User | null>(null);
+
+// const name = user.name;
+
+// const convertArray = (value: string): string[] => {
+//   return [value];
+// };
+
+// convertArray(5);
+// convertArray("Hello");
+
 function App() {
   const onClick = () => {
     console.log("Hello world");
