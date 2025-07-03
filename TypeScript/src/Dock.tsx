@@ -9,10 +9,10 @@ type DockProps = React.ComponentPropsWithoutRef<"button">; // if we dont have re
 // type DockProps = React.ComponentPropsWithRef<Dock>;
 // type DockProps = React.ComponentPropsWithRef<button>;
 
-function Dock({ type, autofocus }: DockProps) {
+function Dock({ type, autoFocus, ...rest }: DockProps) {
   return (
     <>
-      <button type={type} autoFocus={autofocus}>
+      <button type={type} autoFocus={autoFocus} {...rest}>
         Click Me!
       </button>
     </>
