@@ -1,12 +1,17 @@
 import { useState, useContext } from "react";
+import UserContext from "../Context/UserContext";
 
 function Login() {
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState();
+  const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {
-    alert("Hello");
-    console.log(`Username: ${username}\nPassword: ${password}`);
+  const { setUser } = useContext(UserContext); // setUser came through UserContext()
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setUser({ username, password });
+    // alert("Hello");
+    // console.log(`Username: ${username}\nPassword: ${password}`);
   };
 
   return (
