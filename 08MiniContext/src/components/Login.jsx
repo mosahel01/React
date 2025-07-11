@@ -16,16 +16,16 @@ function Login() {
 
   return (
     <div>
-      <h2>Login</h2>
+      <h1>Login Auth</h1>
       <input
         type="text"
-        placeholder="username"
+        placeholder="USERNAME"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />{" "}
       <input
         type="text"
-        placeholder="password"
+        placeholder="PASSWORD"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
