@@ -5,10 +5,15 @@ import UserContextProvider from "./Context/UserContextProvider";
 
 function App() {
 	return (
-		<UserContextProvider>
-			<Login />
-			<Profile />
-		</UserContextProvider>
+		<>
+			<div>
+				Hello There, Howdy ho ?
+			</div>
+			<UserContextProvider>
+				<Login />
+				<Profile />
+			</UserContextProvider>
+		</>
 	);
 }
 
