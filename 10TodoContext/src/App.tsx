@@ -1,53 +1,84 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { TodoContext } from "./contexts";
 
-type addTodoType = {
+type Todo = {
   id: number;
-  prev: string;
+  todo: string;
+  completed: boolean;
 };
 
 function App() {
-  const [todo, setTodo] = useState<addTodoType[]>([]);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
-  const addTodo = (todo: string) => {
-    setTodo((prev: addTodoType[]) => [{ id: Date.now(), prev: todo }, ...prev]);
+  const addTodo = (todoText: string) => {
+    const newTodo: Todo = {
+      id: Date.now(), // Use timestamp as unique ID
+      todo: todoText,
+      completed: false,
+    };
+    setTodos((prevTodos) => [newTodo, ...prevTodos]);
   };
 
-  const updateTodo = (id: number, todo: string) => {
-    setTodo((prev) =>
-      prev.map((prevTodo) =>
-        prevTodo.id === id ? { ...prevTodo, prev: todo } : prevTodo
+  useEffect(() => {
+    const todos = JSON.parse<string | null>(localStorage.getItem("todos"));
+
+    if (todos && todos.length > 0) {
+      setTodos(todos);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
+  const updateTodo = (id: number, newTodoText: string) => {
+    setTodos(
+      (prevTodos) =>
+        prevTodos.map((todo) =>
+          todo.id === id ? { ...todo, todo: newTodoText } : todo
+        )
+      // ye ast mentos tariqa
+      // prev.map((eachValue) => {
+      //   if (eachValue.id === id) {
+      //     todo;
+      //   } else {
+      //     console.log("hola");
+      //   }
+      // });
+    );
+  };
+
+  // Remove a todo by its ID
+  const deleteTodo = (id: number) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+  };
+
+  // Toggle the completed status of a todo
+  const toggleTodo = (id: number) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
-    // ye ast mentos tariqa
-    // prev.map((eachValue) => {
-    //   if (eachValue.id === id) {
-    //     todo;
-    //   } else {
-    //     console.log("hola");
-    //   }
-    // });
   };
-
-  const deleteTodo = (id: number) => {
-    setTodo((prev) => prev.filter((todo) => todo.id !== id));
-    // ye bi same ast
-  };
-
-  const toggleTodo = (id: number) => {
-    setTodo(())
-  }
 
   return (
     <TodoContext.Provider
-      value={{ addTodo, deleteTodo, todos, toggleTodo, updateTod }}
+      value={{
+        todos,
+        addTodo,
+        updateTodo,
+        deleteTodo,
+        toggleTodo,
+      }}
     >
       <div className='bg-[#172842] min-h-screen py-8 '>
         <div className='w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white '>
           <h1 className='text-2xl font-bold text-center mb-8 mt-2 '>
             Manage your todos
           </h1>
+
           <div className='mb-4 '>todo form goes here </div>
           <div className='flex flex-wrap gap-y-3 '>
             Loop and Add todo item here
