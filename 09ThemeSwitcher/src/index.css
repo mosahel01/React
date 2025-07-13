@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+/* currenColor: var(--color, @custom-variant dark(#ffffff, #242424));  */ /*bakwas*/
 
 :root {
   /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
@@ -9,8 +10,11 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  /* color: red; */
-  background-color: #242424;
+  /* Try to use currentColor instead of hardcoding colors */
+  /* background-color: #242424; */
+  /* background-color: @custom-variant dark(#242424, #ffffff); */
+  /* background-color: currentColor; */
+  background-color: rgb(77, 77, 77);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
