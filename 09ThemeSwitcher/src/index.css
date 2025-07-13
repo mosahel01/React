@@ -1,6 +1,23 @@
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
-/* currenColor: var(--color, @custom-variant dark(#ffffff, #242424));  */ /*bakwas*/
+/* @custom-variant dark (&:where(.dark, .dark *)); */ /* This works but below is better */
+/* Enable dark mode toggling by adding a .dark class on the HTML element */
+html.dark {
+  color-scheme: dark;
+  --bg-color: rgb(77, 77, 77);
+  --text-color: rgba(255, 255, 255, 0.87);
+  --link-color: #ffffff;
+  --btn-bg: #1a1a1a;
+  --btn-hover-border: #646cff;
+}
+
+html:not(.dark) {
+  color-scheme: light;
+  --bg-color: #ffffff;
+  --text-color: #213547;
+  --link-color: #646cff;
+  --btn-bg: #f9f9f9;
+  --btn-hover-border: #747bff;
+}
 
 :root {
   /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
