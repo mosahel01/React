@@ -9,6 +9,7 @@ export const ThemeContext = createContext({
 export const ThemeProvider = ThemeContext.Provider;
 
 export default function useTheme() {
+  // return useContext(ThemeProvider); // ThemeProvider is not a context, it's a component
   return useContext(ThemeContext);
 }
 
