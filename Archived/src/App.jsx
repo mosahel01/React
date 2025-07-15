@@ -1,16 +1,12 @@
-import { useState } from "react";
-import "./App.css";
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0);
-
+function Mos() {
   return (
-    <>
-      <div>Hola</div>
-      <div>Amigo</div>
-      <div>How you doing ? </div>
-    </>
+    <div className="App">
+      <header className="App-header">
+        <h1>Welcome to My App</h1>
+        <p>This is a simple React application.</p>
+      </header>
+    </div>
   );
 }
-
-export default App;

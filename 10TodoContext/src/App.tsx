@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { TodoContext } from "./contexts";
 
+
 type Todo = {
   id: number;
   todo: string;
@@ -21,7 +22,7 @@ function App() {
   };
 
   useEffect(() => {
-    const todos = JSON.parse<string | null>(localStorage.getItem("todos"));
+    const todos = JSON.parse(localStorage.getItem("todos"));
 
     if (todos && todos.length > 0) {
       setTodos(todos);
