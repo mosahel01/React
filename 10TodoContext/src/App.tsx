@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import { TodoContext } from "./contexts";
-
+import { useEffect, useState } from 'react';
+import './App.css';
+import TodoForm from './components/TodoForm';
+import TodoItem from './components/TodoItem';
+import { TodoContext } from './contexts';
 
 type Todo = {
   id: number;
@@ -18,11 +19,13 @@ function App() {
       todo: todoText,
       completed: false,
     };
-    setTodos((prevTodos) => [newTodo, ...prevTodos]);
+    setTodos(prevTodos => [newTodo, ...prevTodos]);
   };
 
   useEffect(() => {
-    const todos = JSON.parse(localStorage.getItem("todos"));
+    const storedTodos = localStorage.getItem('todos');
+    const todos = storedTodos ? JSON.parse(storedTodos) : null;
+
 
     if (todos && todos.length > 0) {
       setTodos(todos);
@@ -30,13 +33,15 @@ function App() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
+  
+
 
   const updateTodo = (id: number, newTodoText: string) => {
     setTodos(
-      (prevTodos) =>
-        prevTodos.map((todo) =>
+      prevTodos =>
+        prevTodos.map(todo =>
           todo.id === id ? { ...todo, todo: newTodoText } : todo
         )
       // ye ast mentos tariqa
@@ -52,13 +57,13 @@ function App() {
 
   // Remove a todo by its ID
   const deleteTodo = (id: number) => {
-    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+    setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id));
   };
 
   // Toggle the completed status of a todo
   const toggleTodo = (id: number) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
+    setTodos(prevTodos =>
+      prevTodos.map(todo =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
@@ -76,13 +81,19 @@ function App() {
     >
       <div className='bg-[#172842] min-h-screen py-8 '>
         <div className='w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white '>
-          <h1 className='text-2xl font-bold text-center mb-8 mt-2 '>
-            Manage your todos
+          <h1 className='text-4xl font-bold text-center mb-8 mt-2 '>
+            Manage Your Todos
           </h1>
 
-          <div className='mb-4 '>todo form goes here </div>
+          <div className='mb-4 '>
+            <TodoForm />
+          </div>
           <div className='flex flex-wrap gap-y-3 '>
-            Loop and Add todo item here
+            {todos.map(todo => (
+              <div key={todo.id} className='w-full'>
+                <TodoItem todo={todo} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
